@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>World Cup List</h1>
+
+{% for cup in world_cups %}
+<div class="card">
+  <a href="{% url 'detail' cup.id %}">
+    <div class="card-content">
+      <span class="card-title">Cup Year: {{ cup.year }}</span>
+      <h4>Location:</h4>
+      <h5>{{ cup.location }}</h5>
+      <h4>Match between:</h4>
+      <h5>{{ cup.champion }} v. {{ cup.runner_up }}</h5>
+      <h4>Final Score:</h4>
+      <h5>{{ cup.champion }} {{ cup.champion_score }} - {{ cup.runner_up_score }} {{ cup.runner_up}}</h5>
+      <h4>MVP's</h4>
+      <h5>{{ cup.mvps }}</h5>
+    </div>
+  </a>
+</div>
+{% endfor %} {% endblock %}
